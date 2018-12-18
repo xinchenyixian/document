@@ -1,0 +1,36 @@
+vi /etc/security/limits.conf
+
+添加如下内容:
+
+复制代码
+* soft nofile 65536
+
+* hard nofile 131072
+
+* soft nproc 4096
+
+* hard nproc 4096
+复制代码
+
+vi /etc/security/limits.d/90-nproc.conf
+
+复制代码
+修改如下内容：
+
+* soft nproc 1024
+
+#修改为
+
+* soft nproc 2048
+复制代码
+ 
+
+vi /etc/sysctl.conf 
+
+添加下面配置：
+
+vm.max_map_count=655360
+并执行命令：
+
+sysctl -p
+然后，重新启动elasticsearch，即可启动成功。

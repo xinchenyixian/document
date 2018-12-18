@@ -1,0 +1,2 @@
+EnvironmentFile=/run/flannel/subnet.env
+ExecStart=/usr/bin/dockerd --bip=${FLANNEL_SUBNET} --mtu=${FLANNEL_MTU}  --registry-mirror=http://hub-mirror.c.163.com -H fd://

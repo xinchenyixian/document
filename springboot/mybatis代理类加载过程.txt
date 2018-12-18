@@ -1,0 +1,5 @@
+DefaultSingletonBeanRegistry中的singletonObjects记录了不同beanName的实体类
+
+AbstractBeanFactory中获取RootBeanDefinition 291行
+
+DefaultListableBeanFactory中的1065行result = doResolveDependency(descriptor, requestingBeanName, autowiredBeanNames, typeConverter);

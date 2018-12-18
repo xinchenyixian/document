@@ -1,0 +1,10 @@
+<repositories>
+		<repository>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+			<id>public</id>
+			<name>public</name>
+			<url>http://192.168.8.240:9527/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>

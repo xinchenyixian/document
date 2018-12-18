@@ -1,0 +1,1 @@
+apt-get install apt-show-versions    #安装版本查看工具

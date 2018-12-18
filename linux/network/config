@@ -1,0 +1,5 @@
+1)开机自动启动网卡
+进入目录/etc/sysconfig/network-scripts/
+找到ifcfg-eth0这个文件的ONBOOT项
+将no改为yes
+重启系统reboot

@@ -1,0 +1,27 @@
+com.baomidou.mybatisplus.core.override.PageMapperProxyFactory<T>工厂类创建dao层的代理对象放入spring容器之中，义工后续依赖注入使用(57行)
+
+com.baomidou.mybatisplus.core.override.PageMapperProxy<T>这个是dao层代理对象的代理调用类，会调用里面的invoke方法
+生成一个com.baomidou.mybatisplus.core.override.PageMapperMethod对象，并且缓存在methodCache里面，用方法名称作为key，
+sql语句的执行会调用PageMapperMethod.execute,他会根据sql语句的类型执行对应的方法。
+然后会调用sqlSession去执行具体的方法，sqlSession会调用sqlSessionProxy里面相应方法去执行，
+这是一个代理类，会调用SqlSessionTemplate.SqlSessionInterceptor.invoke方法生成一个sqlsession=org.apache.ibatis.session.defaults.DefaultSqlSession
+然后通过反射调用里面对应的sql方法。然后调用DefaultResultSetHandler.handleResultSets(Statement)处理sql的返回结果。
+创建这个session会开启一个新的会话，调用sessionFactory.openSession(executorType)，这里的executorType是在org.apache.ibatis.session.Configuration中定义的defaultExecutorType = ExecutorType.SIMPLE，
+这里创建一个执行器org.apache.ibatis.executor.SimpleExecutor，里面有一个事务管理器protected Transaction transaction在基类里面
+
+这里需要获取org.apache.ibatis.mapping.MappedStatement在configuration里面通过sql的名称获取，然后通过执行器去执行对应的sql语句并且返回结果
+MappedStatement里有一个变量sqlSource，这个里面存放着具体的sql语句
+
+
+org.mybatis.spring.mapper.MapperFactoryBean.sqlSession = new SqlSessionTemplate(sqlSessionFactory)
+
+org.mybatis.spring.SqlSessionTemplate.SqlSessionTemplate.sqlSessionFactory = org.apache.ibatis.session.defaults.DefaultSqlSessionFactory
+
+org.mybatis.spring.SqlSessionTemplate.SqlSessionTemplate.sqlSessionProxy = (SqlSession) newProxyInstance( SqlSessionFactory.class.getClassLoader(),
+																														        new Class[] { SqlSession.class },
+																														        new SqlSessionInterceptor());
+这是一个代理类
+
+org.apache.ibatis.session.defaults.DefaultSqlSessionFactory.configuration = com.baomidou.mybatisplus.core.MybatisConfiguration
+
+自定义方法的注入com.baomidou.mybatisplus.core.MybatisMapperAnnotationBuilder的149行会根据dao是否继承BaseMapper来确定是否注入自定义的方法

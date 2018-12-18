@@ -1,0 +1,7 @@
+下载镜像
+docker pull registry
+
+docker代理设置
+[Service]
+Environment="HTTP_PROXY=http://ex-yangsuhe001:Suhe201708@10.37.84.36:8080/"
+/etc/systemd/system/docker.service.d/http-proxy.conf

@@ -1,0 +1,35 @@
+配置网易yum源
+1）下载repo文件 
+wget http://mirrors.163.com/.help/CentOS7-Base-163.repo
+
+2）备份并替换系统的repo文件 
+cp CentOS7-Base-163.repo /etc/yum.repos.d/ 
+cd /etc/yum.repos.d/ 
+mv CentOS-Base.repo CentOS-Base.repo.bak 
+mvCentOS7-Base-163.repo CentOS-Base.repo
+
+3）执行yum源更新命令 
+yum clean all 
+yum makecache 
+yum update
+
+
+centos7 安装docker，k8s
+更新yum源
+#docker yum源
+cat >> /etc/yum.repos.d/docker.repo <<EOF
+[docker-repo]
+name=Docker Repository
+baseurl=http://mirrors.aliyun.com/docker-engine/yum/repo/main/centos/7
+enabled=1
+gpgcheck=0
+EOF
+
+#kubernetes yum源
+cat >> /etc/yum.repos.d/kubernetes.repo <<EOF
+[kubernetes]
+name=Kubernetes
+baseurl=http://mirrors.aliyun.com/kubernetes/yum/repos/kubernetes-el7-x86_64/
+enabled=1
+gpgcheck=0
+EOF

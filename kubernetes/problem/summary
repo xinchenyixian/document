@@ -1,0 +1,11 @@
+Running with swap on is not supported, please disable swap! 
+关闭swap：  swapoff -a   打开swap： swapon -a
+
+/proc/sys/net/bridge/bridge-nf-call-iptables contents are not set to 1
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-iptables
+echo 1 > /proc/sys/net/bridge/bridge-nf-call-ip6tables
+
+
+主机名不能相同，相同回报错
+设置主机名 hostnamectl set-hostname myname
+/etc/hosts 文件

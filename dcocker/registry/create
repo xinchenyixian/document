@@ -1,0 +1,23 @@
+http://www.cnblogs.com/xcloudbiz/articles/5526262.html
+
+http://blog.csdn.net/wangtaoking1/article/details/44180901/
+
+设置docker hub镜像加速
+# vim /usr/lib/systemd/system/docker.service 
+[Unit]
+Description=Docker Application Container Engine
+Documentation=https://docs.docker.com
+After=network.target
+
+[Service]
+Type=notify
+# the default is not to use systemd for cgroups because the delegate issues still
+# exists and systemd currently does not support the cgroup feature set required
+# for containers run by docker
+ExecStart=/usr/bin/dockerd  --registry-mirror=https://jnxt8d8b.mirror.aliyuncs.com #更改这里
+
+或者网易ExecStart=/usr/bin/dockerd --registry-mirror=http://hub-mirror.c.163.com 
+--registry-mirror=http://hub-mirror.c.163.com --insecure-registry 10.20.24.65:5000
+
+docker创建私有镜像库
+docker run -d -p 5000:5000 --restart=always --name registry registry:2

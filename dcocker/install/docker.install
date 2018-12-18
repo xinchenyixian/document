@@ -1,0 +1,7 @@
+1)centos
+docker安装：
+Kubernetes 1.6还没有针对docker 1.13和最新的docker 17.03上做测试和验证，所以这里安装Kubernetes官方推荐的Docker 1.12版本。
+#查看docker版本
+yum list docker-engine –showduplicates
+#安装docker
+yum install -y docker-engine-1.12.6-1.el7.centos.x86_64

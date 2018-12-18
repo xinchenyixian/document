@@ -1,0 +1,18 @@
+scrapy
+
+https://www.lfd.uci.edu/~gohlke/pythonlibs/
+pip install ./Twisted-18.9.0-cp37-cp37m-win_amd64.whl
+pip install ./Twisted-18.9.0-cp36-cp36m-win_amd64.whl
+
+Python3.6 安装PIL
+pip install pillow -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+pip install Twisted -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+pip install scrapy -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+
+
+tensorflow
+pip install tensorflow -i http://mirrors.aliyun.com/pypi/simple --trusted-host mirrors.aliyun.com
+
+https://s3.amazonaws.com/img-datasets/mnist.npz   
+C:\Users\oraro\.keras\datasets
+

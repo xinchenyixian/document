@@ -1,0 +1,9 @@
+nmcli connection show
+
+nmcli connection show enp0s3
+
+nmcli connection modify enp0s3 \
+connection.autoconnect yes \
+ipv4.method auto
+
+nmcli connection up enp0s3

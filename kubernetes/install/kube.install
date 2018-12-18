@@ -1,0 +1,13 @@
+1)centos
+kubernetes安装：
+#查看版本
+yum list kubeadm --showduplicates
+yum list kubernetes-cni --showduplicates
+yum list kubelet --showduplicates
+yum list kubectl --showduplicates
+#安装软件
+yum install -y kubernetes-cni-0.5.1-0.x86_64 kubelet-1.7.5-0.x86_64 kubectl-1.7.5-0.x86_64 kubeadm-1.7.5-0.x86_64
+yum remove -y kubernetes-cni-0.5.1-0.x86_64 kubelet-1.7.5-0.x86_64 kubectl-1.7.5-0.x86_64 kubeadm-1.7.5-0.x86_64
+
+
+yum install -y kubernetes-cni-0.5.1-0.x86_64 kubelet-1.7.3-1.x86_64 kubectl-1.7.3-1.x86_64 kubeadm-1.7.3-1.x86_64

@@ -1,0 +1,6 @@
+org.springframework.beans.factory.support.DefaultListableBeanFactory.beanDefinitionMap中保存着bean的定义
+
+com.baomidou.mybatisplus.autoconfigure.MybatisPlusAutoConfiguration.AutoConfiguredMapperScannerRegistrar.registerBeanDefinitions(AnnotationMetadata, BeanDefinitionRegistry)
+这个会扫描dao的接口并保存到beanDefinitionMap中
+
+DefaultAopProxyFactory.createAopProxy创建spring的代理对象
